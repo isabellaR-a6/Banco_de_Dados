@@ -1,0 +1,143 @@
+create database Escola;
+
+create table Alunos(
+	Matricula INT PRIMARY Key,
+    Nome varchar (25) not null,
+    Idade int,
+    Curso Varchar (45)
+);
+
+
+Insert into Alunos (Matricula, Curso, Idade, Nome) 
+values 
+	(101,"Informatica", 19, "Lucas"),
+ 	(102, "Radiologia", 23, "Afonso"),
+ 	(103, "Meio Ambiente", 32, "Regina"),
+ 	(44, "Corte e Costura", 25, "Paulo"),
+ 	(45, "Mecânica", 29, "Patrícia");
+
+
+create table Professores(
+	NIF int primary KEY,
+    Nome VARCHAR (45) not null,
+    Disciplina varchar (50),
+    Tempo_casa int
+);
+
+
+insert into Professores (NIF, Nome, Disciplina, Tempo_casa) values 
+	
+    (12322, "Sandra", "Banco de Dados", 04),
+    (44523, "Ivana", "Kahoot Avançado", 10),
+    (33214, "Paulo", "Matemática", 08),
+    (021, "M Alves", "Organização da ED Brasileira", 50),
+    (14887, "Andreia", "Inspeção de Alunos", 100);
+
+
+update alunos 
+set Curso='Design Industrial'
+where Matricula=45;
+
+update alunos 
+set Nome='Patricia'
+where Matricula=44;
+
+update alunos 
+set Curso='Agronomia'
+where Nome='Patricia';
+
+delete from alunos where Matricula=44;
+
+Insert into Alunos (Matricula, Curso, Idade, Nome) 
+values 
+    (108, "Pilantragem", 60, "Odete Roitman"),
+    (119, "Poppeye", 25, "Olivia Palito"),
+    (233, "Arquitetura", 78, "Oscar Niemayer"),
+    (456, "ADS", 18, "Ana Roitman");
+
+
+SELECT*FROM alunos 
+where Nome Like 'O%';
+
+SELECT*FROM alunos 
+where Nome Like 'A%';
+
+SELECT*FROM alunos 
+where Curso Like 'A%';
+
+SELECT*FROM alunos 
+where Nome Like '%Roitman%';
+
+SELECT*FROM alunos 
+where Curso='Pilantragem' 
+AND Nome Like'%Roitman%';
+
+Insert into Alunos (Matricula, Curso, Idade, Nome) 
+values 
+    (574, "ADS", 17, "Amanda"),
+    (321, "ADS", 17, "Alice"),
+    (213, "Agronomia", 18, "Alvaro"),
+    (879, "Medicina", 23, "Antonio"),
+    (638, "Direito", 33, "Galdino"),
+    (906, "Astronomia", 45, "Gizele"),
+    (927, "Cerimoniário", 16, "Anzo Evanze"),
+    (028, "Musica", 25, "Simone"),
+    (283, "Museologia", 44, "Simária"),
+    (879, "Cardiologia", 19, "Genzo Avanze");
+
+
+SELECT*FROM alunos 
+where Nome Like 'A%';
+
+SELECT*FROM alunos
+where Curso Like '%ADS%';
+
+SELECT*FROM alunos 
+where Idade=17
+and Curso Like '%ADS%';
+
+SELECT*FROM alunos
+where Matricula Like '1%';
+
+SELECT*FROM alunos
+where Matricula Like '%12%';
+
+SELECT*FROM alunos 
+where Idade  >30
+and Curso Like 'M%';
+
+SELECT*FROM alunos 
+where Idade  <30;
+
+SELECT*FROM alunos 
+where Idade  <30
+ORDER BY Idade ASC;
+
+SELECT*FROM alunos
+where Idade <30 
+ORDER BY Nome ASC;
+
+SELECT*FROM alunos 
+where Idade <30
+ORDER BY Curso ASC;
+
+SELECT*FROM alunos 
+where Idade BETWEEN 20 and 30;
+
+SELECT*FROM alunos 
+where Idade BETWEEN 20 and 30
+order by Idade ASC;
+
+SELECT*FROM alunos 
+where Idade BETWEEN 20 and 30
+and Nome like 'A%'
+order by Idade ASC;
+
+
+
+
+
+
+
+
+

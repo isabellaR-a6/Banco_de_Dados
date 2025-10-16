@@ -1,0 +1,71 @@
+create database biblioteca_0.2
+
+CREATE TABLE Livro (
+    Id_Livro int AUTO_INCREMENT PRIMARY key,
+    Título varchar (30), not null
+    Autor varchar (20),
+    Genero varchar (40),
+    AnoPublicacao YEAR
+    );
+
+CREATE TABLE Usuario (
+    Id_Usuario int AUTO_INCREMENT PRIMARY key,
+    Nome varchar (20),
+    Email varchar (60),
+    TipoUsuario ENUM ('Aluno', 'Professor', 'Funcionario') not null
+    );
+
+CREATE TABLE Emprestimo (
+    Id_Emprestimo int AUTO_INCREMENT PRIMARY key,
+    Id_Usuario int,
+    Id_Livro int,
+    DataEmprestimo Date not null, 
+    DataDevolucao Date
+    );
+
+insert into livro (Id_Livro, Título, Autor, Genero, AnoPublicacao) VALUES
+
+    (143, "A volta ao mundo", "Jhon Valer", "Ficção", 1999),
+    (263, "A alegria do Banco de Dados", "Radaelita", "Tecnologia", 2030),
+    (937, "O Príncipe do bem", "Rover White", "Fantasia", 2025),
+    (462, "A beleza do Mundo", "Dante kiki", "Aventura", 2018),
+    (627, "A História do MongoDB", "Fulaninha de tal", "Tecnologia", 2012);
+
+insert into usuario (Id_Usuario, Nome, Email, TipoUsuario) VALUES
+
+    (987, "Rafaelinda", "Rafaelindabebe@gmail.com", "Aluno"),
+    (754, "Diadema", "Diademadias@gmail.com", "Funcionario"),
+    (095, "Paolla", "PallomaVeraver@gmail.com", "Professor");
+
+
+insert into emprestimo (Id_Emprestimo, Id_Usuario, Id_Livro, DataEmprestimo, DataDevolucao) VALUES
+
+	(928, 987, 627, "2025/10/03", "2025/10/03"),
+        (796, 095, 263, "2016/07/24", "2016/09/24");
+
+SELECT*FROM livro
+
+SELECT*from usuario 
+where TipoUsuario='Aluno';
+
+SELECT*from emprestimo 
+WHERE month(DataEmprestimo)=3;
+
+SELECT*from livro 
+where Genero='Tecnologia'
+order by Título ASC;
+
+UPDATE usuario 
+set Email= "Rafaelindalele@gmail.com" 
+where Email ="Rafaelindabebe@gmail.com";
+
+UPDATE LIVRO 
+set AnoPublicacao= "2015"
+where Id_Livro= '263';
+
+DELETE from livro where Id_Livro=462;
+
+DELETE from emprestimo 
+where DataEmprestimo <date_sub(curdate(), interval 15 day);
+
+
